@@ -32,4 +32,24 @@ public class RentServiceRest {
         return carService.getCar(plateNumber);
     }
 
+    @DeleteMapping("/cars")
+    public void deleteCar(@RequestBody Car car){
+        carService.deleteCar(car);
+    }
+
+    @PutMapping("/cars")
+    public boolean updateCar(@RequestBody Car car){
+        return carService.updateCar(car);
+    }
+
+    @GetMapping("/cars/brand/{brand}")
+    public List<Car> getCarsByBrand(@PathVariable String brand){
+        return carService.getCarsByBrand(brand);
+    }
+
+    @GetMapping("/cars/count")
+    public int getCarsCount(){
+        return carService.countCars();
+    }
+
 }
